@@ -1,3 +1,5 @@
+//! Simple, reusable and optimized XOR ciphers in Rust.
+
 #![forbid(unsafe_code)]
 #![warn(missing_docs)]
 
