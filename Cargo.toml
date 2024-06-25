@@ -1,0 +1,12 @@
+[package]
+name = "xor-cipher"
+version = "1.0.0"
+authors = ["nekitdev <nekit@nekit.dev>"]
+edition = "2021"
+description = "Simple, reusable and optimized XOR ciphers in Rust."
+documentation = "https://docs.rs/xor-cipher"
+readme = "README.md"
+homepage = "https://xor-cipher.org/"
+repository = "https://github.com/xor-cipher/xor-cipher"
+license = "MIT"
+keywords = ["xor", "cipher"]
