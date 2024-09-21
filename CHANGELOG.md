@@ -2,6 +2,14 @@
 
 <!-- changelogging: start -->
 
+## [4.0.0](https://github.com/xor-cipher/xor-cipher-crate/tree/v4.0.0) (2024-09-21)
+
+### Changes
+
+- `xor_slice` and `cyclic_xor_slice` were removed in favor of more general functions,
+  `xor` and `cyclic_xor` correspondingly.
+  ([#3](https://github.com/xor-cipher/xor-cipher-crate/pull/3))
+
 ## [3.0.0](https://github.com/xor-cipher/xor-cipher-crate/tree/v3.0.0) (2024-09-21)
 
 ### Changes
