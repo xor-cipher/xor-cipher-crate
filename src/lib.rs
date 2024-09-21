@@ -8,8 +8,12 @@
 ///
 /// This function is its own inverse.
 #[inline]
-pub fn xor_slice(data: &mut [u8], key: u8) {
-    data.iter_mut().for_each(|byte| *byte ^= key);
+pub fn xor<D: AsMut<[u8]>>(mut data: D, key: u8) {
+    fn xor_inner(data: &mut [u8], key: u8) {
+        data.iter_mut().for_each(|byte| *byte ^= key);
+    }
+
+    xor_inner(data.as_mut(), key);
 }
 
 /// Applies XOR operation (`byte ^ key_byte`) for each `byte` in `data`
@@ -17,20 +21,12 @@ pub fn xor_slice(data: &mut [u8], key: u8) {
 ///
 /// This function is its own inverse.
 #[inline]
-pub fn cyclic_xor_slice(data: &mut [u8], key: &[u8]) {
-    data.iter_mut()
-        .zip(key.iter().cycle())
-        .for_each(|(byte, key_byte)| *byte ^= key_byte);
-}
-
-/// Similar to [`xor_slice`], except it is generic over `data`.
-#[inline]
-pub fn xor<D: AsMut<[u8]>>(mut data: D, key: u8) {
-    xor_slice(data.as_mut(), key);
-}
-
-/// Similar to [`cyclic_xor_slice`], except it is generic over `data` and `key`.
-#[inline]
 pub fn cyclic_xor<D: AsMut<[u8]>, K: AsRef<[u8]>>(mut data: D, key: K) {
-    cyclic_xor_slice(data.as_mut(), key.as_ref());
+    fn cyclic_xor_inner(data: &mut [u8], key: &[u8]) {
+        data.iter_mut()
+            .zip(key.iter().cycle())
+            .for_each(|(byte, key_byte)| *byte ^= key_byte);
+    }
+
+    cyclic_xor_inner(data.as_mut(), key.as_ref());
 }
