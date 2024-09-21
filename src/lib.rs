@@ -1,7 +1,7 @@
 //! Simple, reusable and optimized XOR ciphers in Rust.
 
 #![forbid(unsafe_code)]
-#![warn(missing_docs)]
+#![deny(missing_docs)]
 #![cfg_attr(not(feature = "std"), no_std)]
 
 /// Applies XOR operation (`byte ^ key`) for each `byte` in `data`.
@@ -26,11 +26,11 @@ pub fn cyclic_xor_slice(data: &mut [u8], key: &[u8]) {
 /// Similar to [`xor_slice`], except it is generic over `data`.
 #[inline]
 pub fn xor<D: AsMut<[u8]>>(mut data: D, key: u8) {
-    xor_slice(data.as_mut(), key)
+    xor_slice(data.as_mut(), key);
 }
 
 /// Similar to [`cyclic_xor_slice`], except it is generic over `data` and `key`.
 #[inline]
 pub fn cyclic_xor<D: AsMut<[u8]>, K: AsRef<[u8]>>(mut data: D, key: K) {
-    cyclic_xor_slice(data.as_mut(), key.as_ref())
+    cyclic_xor_slice(data.as_mut(), key.as_ref());
 }
