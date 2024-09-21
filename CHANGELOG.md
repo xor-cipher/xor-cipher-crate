@@ -2,6 +2,15 @@
 
 <!-- changelogging: start -->
 
+## [3.0.0](https://github.com/xor-cipher/xor-cipher-crate/tree/v3.0.0) (2024-09-21)
+
+### Changes
+
+- `cyclic_xor` and `xor` are now generic via accepting `AsMut<[u8]>` and `AsRef<[u8]>`.
+
+  Also, `xor_cipher::in_place` was deleted in favor of specifying the functions in the root.
+  ([#2](https://github.com/xor-cipher/xor-cipher-crate/pull/2))
+
 ## [2.0.0](https://github.com/xor-cipher/xor-cipher-crate/tree/v2.0.0) (2024-09-20)
 
 ### Changes
