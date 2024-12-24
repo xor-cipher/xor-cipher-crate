@@ -56,7 +56,7 @@ If you are interested in contributing to `xor-cipher`, make sure to take a look 
 
 `xor-cipher` is licensed under the MIT License terms. See [License][License] for details.
 
-[Email]: mailto:support@xor-cipher.org
+[Email]: mailto:support@nekit.dev
 
 [Actions]: https://github.com/xor-cipher/xor-cipher-crate/actions
 
